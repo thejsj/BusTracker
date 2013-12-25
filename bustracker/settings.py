@@ -87,3 +87,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATIC_ROOT = '/home/thejsj/webapps/bustracker_static/'
+
+try:
+    from local_settings import *
+except ImportError:
+    pass
