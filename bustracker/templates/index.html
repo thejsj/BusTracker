@@ -1,0 +1,45 @@
+<html>
+	<head>
+		<title>GRTC Query</title>
+		<style>
+			table {
+				border-collapse: collapse;
+			}
+			td {
+				border: 1px solid #777;
+				padding: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>GRTC Query</h1>
+		<div class='query'>
+			{% if all_route_queries|length > 0 %}
+				<table>
+					<tr>
+						<td>Route</td>
+						<td>Stop</td>
+						<td>Direction</td>
+						<td>Status</td>
+						<td>Minutes</td>
+						<td>Stop Away</td>
+						<td>Url</td>
+					</tr>
+				{% for key,query in all_route_queries.items %}
+					<tr>
+						<td>{{ query.route_id }}</td>
+						<td>{{ query.stop_id }}</td>
+						<td>{{ query.direction }}</td>
+						<td>{{ query.status }}</td>
+						<td>{{ query.minutes }}</td>
+						<td>{{ query.stops_away }}</td>
+						<td><a href='{{ query.url }}'>Link</a></td>
+					</tr>
+				{% endfor %}
+				</table>
+			{% endif %}
+		</div>
+		<p>{{ static_root }}<p>
+		<a href="javascript: (function () { theSuperprettyUrl = '{{ request.build_absolute_uri }}api/'; var jsCode = document.createElement('script'); jsCode.setAttribute('src', '{{ request.build_absolute_uri }}static/js/bookmarklet.js'); document.body.appendChild(jsCode);}())">Stop #779 and Stop #54</a>
+	</body>
+</html>

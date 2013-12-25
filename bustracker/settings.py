@@ -27,7 +27,7 @@ TEMPLATE_DEBUG = True
 ALLOWED_HOSTS = []
 
 ADMINS = (
-	('Jorge R. Silva Jetter', 'jorge.silva@thejsj.com'),
+    ('Jorge R. Silva Jetter', 'jorge.silva@thejsj.com'),
 )
 
 # Application definition
@@ -50,10 +50,14 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+  'django.core.context_processors.request',
+  'django.contrib.auth.context_processors.auth',
+)
+
 ROOT_URLCONF = 'bustracker.urls'
 
 WSGI_APPLICATION = 'bustracker.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
@@ -62,8 +66,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'bustracker',
-	'USER' : 'bustracker',
-	'PASSWORD' : 'PAw9JL4admXUcje',
+        'USER' : 'bustracker',
+        'PASSWORD' : 'PAw9JL4admXUcje',
     }
 }
 
@@ -87,6 +91,24 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATIC_ROOT = '/home/thejsj/webapps/bustracker_static/'
+
+# Template Loader
+
+PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
+
+TEMPLATE_DIRS = (
+    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
+    os.path.join(PROJECT_ROOT, 'templates').replace('\\','/'),
+)
+
+# List of callables that know how to import templates from various sources.
+TEMPLATE_LOADERS = (
+    'django.template.loaders.filesystem.Loader',
+    'django.template.loaders.app_directories.Loader',
+#     'django.template.loaders.eggs.Loader',
+)
 
 try:
     from local_settings import *
