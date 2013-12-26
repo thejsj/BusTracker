@@ -6,5 +6,4 @@ STATICFILES_DIRS = (
     os.path.join(APP_DICRECOTRY, 'static'),
     os.path.join(APP_DICRECOTRY, 'media'),
     '/Users/jorgesilva/Sites/2013/BusTracker/static',
-    '/var/www/static/',
 )
