@@ -5,6 +5,9 @@ __pycache__/
 # C extensions
 *.so
 
+# Local Settings
+bustracker/local_settings.py
+
 # Distribution / packaging
 bin/
 build/
