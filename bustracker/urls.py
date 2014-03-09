@@ -6,9 +6,5 @@ admin.autodiscover()
 urlpatterns = patterns('',
     # Main:
     url(r'^$', 'bustracker.views.main', name='main'),
-    
-    # API:
-    url(r'^api/', 'bustracker.views.ajax_request', name='ajax'),
-
     url(r'^admin/', include(admin.site.urls)),
 )
